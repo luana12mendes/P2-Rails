@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  codigo: MyString
+  titulo: MyString
+  autor: MyString
+  editora: MyString
+  preco: MyString
+
+two:
+  codigo: MyString
+  titulo: MyString
+  autor: MyString
+  editora: MyString
+  preco: MyString

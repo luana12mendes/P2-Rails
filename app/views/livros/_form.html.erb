@@ -1,0 +1,51 @@
+<%= form_for(livro) do |f| %>
+  <% if livro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(livro.errors.count, "error") %> prohibited this livro from being saved:</h2>
+
+      <ul>
+      <% livro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :codigo %>
+    <%= f.text_field :codigo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :titulo %>
+    <%= f.text_field :titulo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :editora %>
+    <%= f.text_field :editora %>
+  </div>
+
+  <div class="field">
+    <%= f.label :preco %>
+    <%= f.text_field :preco %>
+  </div>
+
+  <div>
+    <%= f.label :capa %>
+    <%= image_tag @livro.capa_url, class: 'capa' if @livro.capa? %>
+    <%= f.file_field :capa, label: 'Capa' , input_html: {accept: ('application/jpg') } %>
+    <br/>
+  </div>
+
+  <div class="field">
+    <%= f.label :autor %><br>
+    <%= f.select :autor_id, options_for_select(Autor.all.map{|m|[m.nome,
+    m.id]},f.object.autor_id) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Salvar', :class => 'btn btn-primary' %>
+    <%= link_to ' Voltar', livros_path , class: "btn btn-default " %>
+  </div>
+<% end %>

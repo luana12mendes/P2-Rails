@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Livros</h1>
+
+  <hr/>
+  <%= render 'formbusca' %>
+  <hr/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th>Titulo</th>
+      <th>Autor</th>
+      <th>Editora</th>
+      <th>Preco</th>
+      <th>Capa</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @livros.each do |livro| %>
+      <tr>
+        <td><%= livro.codigo %></td>
+        <td><%= livro.titulo %></td>
+        <td><%= livro.autor.nome if livro.autor %></td>
+        <td><%= livro.editora %></td>
+        <td>R$ <%= livro.preco %></td>
+        <td><%= image_tag livro.capa, height:'80', width:'62' %></td> 
+        <td><%= link_to ' ', livro , class: "glyphicon glyphicon-blackboard" %></td>
+        <td><%= link_to ' ', edit_livro_path(livro) , class: "glyphicon glyphicon-pencil"%></td>
+        <td><%= link_to ' ', livro, method: :delete, data: { confirm: 'Deseja Realmente Excluir?' }, class:"glyphicon glyphicon-trash" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Livro', new_livro_path %>
+<%= will_paginate @livros, previous_label: "Anterior", next_label: "Próxima" %>
+<br/>

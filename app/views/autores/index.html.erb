@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Autores</h1>
+
+<hr/>
+  <%= render 'formbusca' %>
+<hr/>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Editora</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @autores.each do |autor| %>
+      <tr>
+        <td><%= autor.nome %></td>
+        <td><%= autor.email %></td>
+        <td><%= autor.editora %></td>
+        <td><%= link_to ' ', autor , class: "glyphicon glyphicon-blackboard"%></td>
+        <td><%= link_to ' ', edit_autor_path(autor), class: "glyphicon glyphicon-pencil" %></td>
+        <td><%= link_to ' ', autor, method: :delete, data: { confirm: 'Deseja Realmente Excluir?' }, class:"glyphicon glyphicon-trash" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Autor', new_autor_path %>
+<%= will_paginate @funcionarios, previous_label: "Anterior", next_label: "Próxima" %>
+<br/>
+

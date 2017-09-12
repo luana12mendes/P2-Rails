@@ -1,0 +1,34 @@
+<div id="wrapper">
+	<div id="sidebar-wrapper">
+	<ul class="sidebar-nav">
+	<li class="sidebar-brand">
+		<a href="#" >
+			<h4><%= link_to 'Menu', paginas_index_path %></h4>
+		</a>
+	</li>
+<li style="font-size: 20px;">
+	<%= link_to ' Cliente', clientes_path,
+	class: "glyphicon glyphicon-user" %>
+</li>
+<br/>
+<li style="font-size: 20px;">
+	<%= link_to ' Autor', autores_path,
+	class: "glyphicon glyphicon-user" %>
+</li>
+<br/>
+<li style="font-size: 20px;">
+	<%= link_to ' Livros', livros_path ,
+	class: "glyphicon glyphicon-book"%>
+</li>
+<br/>
+<li style="font-size: 20px;">
+	<%= link_to ' Funcionário', funcionarios_path ,
+	class: "glyphicon glyphicon-user"%>
+</li>
+<br/>
+<li style="font-size: 20px;">
+        <%= link_to " Relatorio", listar_funcionarios_path(@funcionario,  :format => 'pdf'), target: '_blank', class: "glyphicon glyphicon-print" %> 
+</li>
+</ul>
+</div>
+</div>
